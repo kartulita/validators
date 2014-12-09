@@ -1,7 +1,7 @@
 (function (angular, _) {
 	'use strict';
 
-	angular.module('battlesnake.fields')
+	angular.module('battlesnake.validators')
 		.directive('validator', validatorsDirective)
 		.directive('validators', validatorsDirective);
 
@@ -13,9 +13,10 @@
 		};
 
 		function link(scope, element, attrs, ngModel) {
-			var validators = hintParseService.parse(attrs.validators);
+			var validators = hintParseService.parse(attrs.validators, [], true);
 			_(validators)
-				.each(function (val, name) {
+				.each(function (kv) {
+					var name = kv.key, val = kv.val;
 					var func = validatorService(name);
 					var target = func.async ? ngModel.$asyncValidators : ngModel.$validators;
 					var validatorName = name + ':' + val.toString();

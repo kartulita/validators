@@ -12,7 +12,9 @@
 	 * Name of the validator to get
 	 *
 	 * @returns {validator}
-	 * Validator function, e.g. `(test expect [modelValue viewValue]) -> boolean`
+	 * Validator function, e.g. `(test expect [modelValue viewValue]) -> boolean`.
+	 * `test` is the model value if one was specified by ngModel, or the view
+	 * value otherwise.
 	 */
 	function validatorService($injector) {
 		return function (name) {
