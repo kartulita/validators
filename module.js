@@ -2,7 +2,7 @@
 	'use strict';
 	/**
 	 * @ngdoc module
-	 * @module battlesnake.validators
+	 * @module validators
 	 * @requires dsl
 	 *
 	 * @description
